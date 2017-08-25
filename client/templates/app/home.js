@@ -1,11 +1,34 @@
+Template.home.onRendered(function() {
+  var urlString = "http://10.2.0.8:3030/?";
+
+// debugger
+
+  console.log("UrlString=" + urlString);
+
+  var respValue = "";
+  respValue = Meteor.call('callViaduct', urlString, function(e, result) {
+    console.log("response= " + result);
+
+    var appt = JSON.parse(result)
+    Session.set("appointment", appt);
+  });
+
+});
+
 Template.home.helpers({
-  instructions: function() {
-      return "Abdominal ultrasound is a type of imaging test. It is used to look at organs in the abdomen, including the liver, gallbladder, spleen, pancreas, and kidneys. The blood vessels that lead to some of these organs, such as the inferior vena cava and aorta, can also be examined with ultrasound.<p></p><font color='blue'>How the Test is Performed</font> <p></p>An ultrasound machine makes images of organs and structures inside the body. The machine sends out high-frequency sound waves that reflect off body structures. A computer receives these waves and uses them to create a picture. Unlike with x-rays or CT scans, this test does not expose you to ionizing radiation. <p></p>You will be lying down for the procedure. A clear, water-based conducting gel is applied to the skin over the abdomen. This helps with the transmission of the sound waves. A handheld probe called a transducer is then moved over the abdomen.<p></p>You may need to change position so that the health care provider can look at different areas. You may also need to hold your breath for short periods during the exam.<p></p>Most of the time, the test takes less than 30 minutes.<p></p><font color='blue'>How to Prepare for the Test</font> <p></p>How you will prepare for the test depends on the problem. You will likely be asked not to eat or drink for several hours before the exam. Your provider will go over what you need to do. <p></p><font color='blue'>How the Test will Feel</font> <p></p>There is little discomfort. The conducting gel may feel a little cold and wet.<p></p><font color='blue'>Why the Test is Performed</font> <p></p>You may have this test to: <p></p>•Find the cause of abdominal pain<p></p>•Find the cause of kidney infections<p></p>•Diagnose and monitor tumors and cancers<p></p>•Diagnose or treat ascites<p></p>•Learn why there is swelling of an abdominal organ<p></p>•Look for damage after an injury<p></p>•Look for stones in the gallbladder or kidney<p></p>•Look for the cause of abnormal blood tests such as liver function tests or kidney tests<p></p>•Look for the cause of a fever <p></p>The reason for the test will depend on your symptoms.<p></p>"
-  },
-  appointmentDetails: function() {
-    return "29th Sept 2017 at 10:00 am"
-  },
   patientName: function() {
     return "John Lewis"
+  },
+  appointmentList: function() {
+    var appt = Session.get("appointment");
+
+    var apptInner = "";
+
+    apptInner =  appt.appointmentDetails.appointmentTypeInfo;
+    for (i = 0; i < apptInner.length; i++) {
+        Session.set("ap_id_" + apptInner[i].ap_id, true)
+    }
+
+    return appt.appointmentDetails.appointmentTypeInfo
   }
 });

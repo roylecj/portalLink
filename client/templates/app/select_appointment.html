@@ -1,0 +1,9 @@
+<template name="selectAppointment">
+  {{#if ap_apptname}}
+  <div class="btn btn-xs {{selectedAppt}} btnAppointment">{{ap_apptname}}
+    {{#if isSelected}}
+    <div class="glyphicon glyphicon-remove"></div>
+    {{/if}}
+  </div>
+  {{/if}}
+</template>

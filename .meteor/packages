@@ -24,3 +24,5 @@ juliancwirko:s-alert
 fortawesome:fontawesome
 session
 http
+momentjs:moment
+underscorestring:underscore.string
