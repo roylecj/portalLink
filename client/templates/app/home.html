@@ -1,0 +1,74 @@
+<template name="home">
+  <img src="dxc_symbol_wht_rgb_300.png" class="navbar-brand"/>
+
+  <div class="jumbotron">
+    <h1>{{patientName}}, your Appointment is Confirmed</h1>
+    <div class="row">
+      <div class="col-xs-6">
+        <h3 class="pull-left">Preparing for your visit</h3>
+      </div>
+      <div class="col-xs-6">
+        <h3 class="pull-right">Enhancing your visit</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            Appointment Details
+          </div>
+          <div class="panel-body">
+            {{appointmentDetails}}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            Information
+          </div>
+          <div class="panel-body">
+            Download the PatientAide app to your phone to enhance your experience with the hospital.
+<p></p>
+            Stay in touch with your upcoming appointments, view patient advice information, and communicate with your care team.
+            <p>
+              <div class="col-xs-3">
+                <div class="btn btn-sm btn-info">
+                  <i class="fa fa-android fa-2x" aria-hidden="true"></i> Android
+                </div>
+              </div>
+
+              <div class="col-xs-3">
+                <div class="btn btn-sm btn-info">
+                  <i class="fa fa-apple fa-2x" aria-hidden="true"></i> Apple iOS
+                </div>
+              </div>
+
+              <div class="col-xs-3">
+                <a href="http://patientaide.dxchealthlab.io" class="btn btn-sm btn-danger">
+                  <i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Launch PatientAide
+                </a>
+              </div>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            Instructions
+          </div>
+          <div class="panel-body">
+            {{{instructions}}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
