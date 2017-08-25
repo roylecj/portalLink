@@ -16,8 +16,20 @@ Template.home.onRendered(function() {
 });
 
 Template.home.helpers({
+  found: function() {
+    if (Session.get("appointment")) {
+      return true
+    } else {
+      return false
+    }
+  },
   patientName: function() {
-    return "John Lewis"
+//    return "John Lewis"
+
+  var appt = Session.get("appointment");
+
+  return appt.appointmentDetails.appointmentTypeInfo[0].patient_name
+
   },
   bookingCode: function() {
 
