@@ -2,7 +2,7 @@
   <img src="dxc_symbol_wht_rgb_300.png" class="navbar-brand"/>
 
   <div class="jumbotron">
-    <h1>{{patientName}}, your Appointment is Confirmed {{appointmentCount}}</h1>
+    <h1>{{patientName}}, your appointment is confirmed</h1>
     <div class="row">
       <div class="col-xs-6">
         <h3 class="pull-left">Preparing for your visit</h3>
@@ -39,6 +39,8 @@
             Download the PatientAide app to your phone to enhance your experience with the hospital.
 <p></p>
             Stay in touch with your upcoming appointments, view patient advice information, and communicate with your care team.
+<p></p>
+            Your online booking code is <div class="btn btn-xs btn-danger">{{bookingCode}}</div> use this to access your appointments online.
             <p>
               <div class="col-xs-3">
                 <div class="btn btn-sm btn-info">
@@ -74,7 +76,7 @@
             {{#each appointmentList}}
               {{> selectAppointment}}
             {{/each}}
-            
+
             {{#each appointmentList}}
               {{> instructionItems}}
             {{/each}}

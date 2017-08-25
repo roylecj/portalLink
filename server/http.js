@@ -1,6 +1,6 @@
 Meteor.methods({
     callViaduct: function (url) {
-      console.log("callViaduct=" + url);
+//      console.log("callViaduct=" + url);
 
       try {
         var result = HTTP.call("GET", url,
@@ -11,7 +11,7 @@ Meteor.methods({
         console.log(e);
       };
 
-      console.log(result.content);
+//      console.log(result.content);
 
       return result.content;
     }

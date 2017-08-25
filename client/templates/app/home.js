@@ -7,7 +7,7 @@ Template.home.onRendered(function() {
 
   var respValue = "";
   respValue = Meteor.call('callViaduct', urlString, function(e, result) {
-    console.log("response= " + result);
+//    console.log("response= " + result);
 
     var appt = JSON.parse(result)
     Session.set("appointment", appt);
@@ -18,6 +18,12 @@ Template.home.onRendered(function() {
 Template.home.helpers({
   patientName: function() {
     return "John Lewis"
+  },
+  bookingCode: function() {
+
+    var appt = Session.get("appointment");
+
+    return appt.appointmentDetails.appointmentTypeInfo[0].booking_code
   },
   appointmentList: function() {
     var appt = Session.get("appointment");
